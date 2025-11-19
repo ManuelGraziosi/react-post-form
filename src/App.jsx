@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react"
 
 function App() {
@@ -22,7 +23,9 @@ function App() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log(formData)
+    console.log(formData);
+    axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData).then((resp) => console.log(resp));
+    setFormData(initialFormData);
   }
   return (
     <>
@@ -31,7 +34,7 @@ function App() {
         <form type="submit">
           <div className="mb-3">
             <label htmlFor="author" className="form-label">Nome Autore:</label>
-            <input type="text" value={formData.name} onChange={handleChange} className="form-control" id="author" aria-describedby="author" name="author" />
+            <input type="text" value={formData.author} onChange={handleChange} className="form-control" id="author" aria-describedby="author" name="author" />
           </div>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">Titolo del post:</label>
