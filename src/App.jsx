@@ -1,30 +1,40 @@
 import axios from "axios";
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import PostCard from "./assets/components/PostCard";
 
 function App() {
   const initialFormData = {
-    "author": "",
-    "title": "",
-    "body": "",
-    "public": false
+    author: "",
+    title: "",
+    body: "",
+    public: false
   }
-  const [formData, setFormData] = useState({ ...initialFormData })
+  const [formData, setFormData] = useState(initialFormData);
+  const [recivedPosts, setRecivedPosts] = useState([]);
+  const [dataUpdated, setDataUpdated] = useState(false);
+
+  useEffect(()=>{
+    axios.get("http://localhost:3001/posts").then((resp)=>{
+      setRecivedPosts(resp.data);
+      setDataUpdated(false);
+    })
+  },[dataUpdated])
 
   function handleChange(event) {
     const newFormData = { ...formData }
-    const changedAtribute = event.target.name;
-    let newValue = event.target.value;
-    if (changedAtribute === "public") {
-      newValue = event.target.checked;
+    const key = event.target.name;
+    const type = event.target.type;
+    let value = event.target.value;
+    if (type === "checkbox") {
+      value = event.target.checked;
     }
-    newFormData[changedAtribute] = newValue;
+    newFormData[key] = value;
     setFormData(newFormData);
   }
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log(formData);
-    axios.post("http://localhost:3001/posts", formData).then((resp) => console.log(resp));
+    axios.post("http://localhost:3001/posts", formData).then((resp) => setDataUpdated(true));
     setFormData(initialFormData);
   }
   return (
@@ -50,6 +60,22 @@ function App() {
           </div>
           <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Submit</button>
         </form>
+        <hr />
+        {/* sezione post pubblicati */}
+        <section>
+          <h2>Elenco Post Caricati</h2>
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            {
+              recivedPosts.map((curPost)=>(
+                <div key={curPost.id} className="col g-3">
+                  <PostCard post={curPost}/>
+                </div>
+
+              ))
+            }
+
+          </div>
+        </section>
       </div>
     </>
   )

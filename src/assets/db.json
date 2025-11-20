@@ -1,25 +1,39 @@
 {
   "posts": [
     {
-      "id": "add2",
-      "author": "",
-      "title": "",
-      "body": "",
-      "public": false
-    },
-    {
-      "id": "e70e",
-      "author": "",
-      "title": "",
-      "body": "",
-      "public": false
-    },
-    {
       "id": "22ba",
       "author": "prova nome autore",
       "title": "prova titolo",
       "body": "testo prova",
       "public": true
+    },
+    {
+      "id": "a43e",
+      "author": "Pinko Pallino",
+      "title": "Post durante lezione: le API sono attive",
+      "body": "Lorem Ipsum",
+      "public": false
+    },
+    {
+      "id": "891f",
+      "author": "Odio est duis eu cup",
+      "title": "Laborum Qui sed sit",
+      "body": "Accusantium aliquid ",
+      "public": false
+    },
+    {
+      "id": "c339",
+      "author": "Quibusdam elit aut ",
+      "title": "Quasi laborum sint i",
+      "body": "Facilis tempor sequi",
+      "public": true
+    },
+    {
+      "id": "61f7",
+      "author": "Aut velit est praese",
+      "title": "Iusto eiusmod dolore",
+      "body": "Labore sed rem cumqu",
+      "public": false
     }
   ]
 }
