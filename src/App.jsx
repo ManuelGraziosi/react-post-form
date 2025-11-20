@@ -3,12 +3,12 @@ import { useState } from "react"
 
 function App() {
   const initialFormData = {
-    author: "",
-    title: "",
-    body: "",
-    public: false
+    "author": "",
+    "title": "",
+    "body": "",
+    "public": false
   }
-  const [formData, setFormData] = useState({ initialFormData })
+  const [formData, setFormData] = useState({ ...initialFormData })
 
   function handleChange(event) {
     const newFormData = { ...formData }
@@ -24,7 +24,7 @@ function App() {
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log(formData);
-    axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData).then((resp) => console.log(resp));
+    axios.post("http://localhost:3001/posts", formData).then((resp) => console.log(resp));
     setFormData(initialFormData);
   }
   return (

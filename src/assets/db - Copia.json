@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "id": "1913",
+      "initialFormData": {
+        "author": "",
+        "title": "",
+        "body": "",
+        "public": false
+      },
+      "author": "Manuel Test",
+      "title": "Titolo Test",
+      "body": "testo del post",
+      "public": true
+    },
+    {
+      "id": "7c7d",
+      "author": "",
+      "title": "",
+      "body": "",
+      "public": false
+    },
+    {
+      "id": "667a",
+      "author": "nome test2",
+      "title": "titolo test2",
+      "body": "testo test2",
+      "public": true
+    }
+  ]
+}

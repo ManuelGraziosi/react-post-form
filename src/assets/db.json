@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": "add2",
+      "author": "",
+      "title": "",
+      "body": "",
+      "public": false
+    },
+    {
+      "id": "e70e",
+      "author": "",
+      "title": "",
+      "body": "",
+      "public": false
+    },
+    {
+      "id": "22ba",
+      "author": "prova nome autore",
+      "title": "prova titolo",
+      "body": "testo prova",
+      "public": true
+    }
+  ]
+}
